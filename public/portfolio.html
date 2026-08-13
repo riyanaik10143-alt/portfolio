@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Riya Naik — Graphic Design & Content Creator</title>
+<meta name="description" content="Monochrome portfolio of Riya Naik — graphic design, branding, fashion campaigns and social media content." />
+<meta property="og:title" content="Riya Naik — Graphic Design & Content Creator" />
+<meta property="og:description" content="Luxury streetwear inspired graphic design portfolio: branding, mockups, campaigns and reels." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#050505; --ink-2:#0d0d0d; --ink-3:#141414;
+    --line:rgba(255,255,255,.10);
+    --grey:#8b8b8b; --grey-2:#b9b9b9; --paper:#f4f4f4;
+    --grad:linear-gradient(120deg,#ffffff 0%,#cfcfcf 45%,#7a7a7a 100%);
+  }
+  *{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:'Inter',system-ui,sans-serif;font-weight:300;letter-spacing:.01em;overflow-x:hidden}
+  ::selection{background:#fff;color:#000}
+  .display-mono{font-family:'Anton',Impact,sans-serif;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+  .eyebrow{font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--grey)}
+  .section{padding:7.5rem 0}
+  .section+.section{border-top:1px solid var(--line)}
+  .lead-muted{color:var(--grey-2);font-size:1.05rem;line-height:1.85;max-width:60ch}
+
+  /* NAV */
+  .navbar{background:rgba(5,5,5,.6);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:padding .4s ease,background .4s ease}
+  .navbar.shrink{background:rgba(5,5,5,.92)}
+  .navbar-brand{font-family:'Anton',sans-serif;letter-spacing:.18em;font-size:1.05rem;text-transform:uppercase}
+  .nav-link{color:var(--grey-2)!important;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:.5rem .9rem!important}
+  .nav-link::after{content:"";position:absolute;left:.9rem;right:.9rem;bottom:.15rem;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
+  .nav-link:hover{color:#fff!important}
+  .nav-link:hover::after{transform:scaleX(1);transform-origin:left}
+  .navbar-toggler{border-color:var(--line)}
+  .navbar-toggler-icon{filter:invert(1) grayscale(1)}
+
+  /* BUTTONS */
+  .btn-lux{background:var(--grad);color:#000;border:0;border-radius:999px;padding:.95rem 2.2rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,filter .35s}
+  .btn-lux:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(255,255,255,.16);filter:brightness(1.06);color:#000}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.95rem 2.2rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;transition:.35s ease}
+  .btn-ghost:hover{background:#fff;color:#000;transform:translateY(-3px)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:6rem;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 500px at 75% 20%,rgba(255,255,255,.10),transparent 60%),
+    radial-gradient(700px 420px at 10% 85%,rgba(255,255,255,.06),transparent 60%);}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:90px 90px;mask-image:radial-gradient(circle at 50% 40%,#000 30%,transparent 78%)}
+  .hero h1{font-size:clamp(3.2rem,11vw,9.5rem)}
+  .hero .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:.9rem 0;background:rgba(255,255,255,.02)}
+  .marquee span{display:inline-block;font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:.9rem;color:var(--grey);animation:slide 26s linear infinite}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .hero-frame{border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.7)}
+  .hero-frame img{width:100%;height:100%;object-fit:contain;filter:none contrast(1.08)}
+
+  /* GLASS CARDS */
+  .glass{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:24px;backdrop-filter:blur(14px);transition:transform .45s cubic-bezier(.2,.8,.2,1),background .45s,border-color .45s}
+  .glass:hover{transform:translateY(-8px);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}
+
+  /* SKILLS */
+  .skill-chip{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--line);border-radius:999px;padding:.7rem 1.3rem;font-size:.82rem;letter-spacing:.08em;color:var(--grey-2);background:rgba(255,255,255,.03);transition:.35s ease}
+  .skill-chip:hover{color:#000;background:#fff;border-color:#fff;transform:translateY(-4px)}
+
+  /* PROJECTS */
+  .work-card{border-radius:26px;overflow:hidden;border:1px solid var(--line);background:var(--ink-2);height:100%;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .5s}
+  .work-card:hover{transform:translateY(-10px);border-color:rgba(255,255,255,.3)}
+  .work-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .work-media img{width:100%;height:100%;object-fit:contain;filter:none contrast(1.05) brightness(.92);transition:transform 1s ease,filter .6s ease}
+  .work-card:hover .work-media img{transform:scale(1.08);filter:non contrast(1.15) brightness(1)}
+  .work-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 55%)}
+  .work-index{position:absolute;top:1rem;left:1.2rem;z-index:2;font-family:'Anton',sans-serif;font-size:.9rem;letter-spacing:.2em;color:rgba(255,255,255,.75)}
+  .tool-tag{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:.32rem .75rem;color:var(--grey)}
+
+  /* PROCESS */
+  .process-row{display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);transition:.4s ease}
+  .process-row:hover{background:rgba(255,255,255,.035);padding-left:1rem}
+  .process-num{font-family:'Anton',sans-serif;font-size:2.2rem;color:rgba(255,255,255,.22)}
+  .process-row:hover .process-num{color:#fff}
+
+  /* CONTACT */
+  .contact-link{display:flex;align-items:center;gap:1rem;padding:1.35rem 1.6rem;border-radius:20px;border:1px solid var(--line);color:var(--paper);text-decoration:none;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);transition:.4s ease}
+  .contact-link:hover{background:#fff;color:#000;transform:translateX(8px)}
+  .contact-link i{font-size:1.25rem}
+
+  footer{border-top:1px solid var(--line);padding:2.6rem 0;color:var(--grey);font-size:.8rem;letter-spacing:.12em}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.marquee span{animation:none}}
+  #toTop{position:fixed;right:1.4rem;bottom:1.4rem;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);backdrop-filter:blur(10px);color:#fff;opacity:0;pointer-events:none;transition:.4s;z-index:40}
+  #toTop.show{opacity:1;pointer-events:auto}
+  #toTop:hover{background:#fff;color:#000}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top py-3" id="nav">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#hero">Riya&nbsp;Naik</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#hire">Why Me</a></li>
+        <li class="nav-item ms-lg-3"><a class="btn btn-lux" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 reveal">
+        <p class="eyebrow mb-4">Graphic Design &nbsp;|&nbsp; Content Creation</p>
+        <h1 class="display-mono mb-4">Riya<br /><span class="grad-text">Naik</span></h1>
+        <p class="lead-muted mb-4">I build visual identities for brands that want to be felt before they are read — monochrome, disciplined, and unmistakably premium. My work lives where creativity meets branding, fashion and digital design: campaigns, apparel graphics, mockups and social content crafted with obsessive attention to type, contrast and rhythm.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-lux" href="#work"><i class="bi bi-arrow-down-right me-2"></i>View My Work</a>
+          <a class="btn btn-ghost" href="#contact">Let's Talk</a>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal">
+        <div class="hero-frame ratio ratio-4x3">
+          <img src="/images/p8.jpg" alt="Monochrome streetwear campaign portrait" width="1200" height="900" />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <span>Branding &nbsp;•&nbsp; Streetwear Graphics &nbsp;•&nbsp; Social Media Design &nbsp;•&nbsp; Typography &nbsp;•&nbsp; Mockups &nbsp;•&nbsp; Reels &nbsp;•&nbsp; Art Direction &nbsp;•&nbsp; Branding &nbsp;•&nbsp; Streetwear Graphics &nbsp;•&nbsp; Social Media Design &nbsp;•&nbsp; Typography &nbsp;•&nbsp; Mockups &nbsp;•&nbsp; Reels &nbsp;•&nbsp; Art Direction &nbsp;•&nbsp;</span>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="ratio ratio-4x3 hero-frame">
+          <img src="/images/p9.jpg" alt="Monochrome design desk with logo sketches" loading="lazy" width="1200" height="900" />
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <p class="eyebrow mb-3">01 — About Me</p>
+        <h2 class="display-mono mb-4" style="font-size:clamp(2.2rem,5vw,4rem)">Engineer<br />by degree.<br />Designer by<br /><span class="grad-text">instinct.</span></h2>
+        <p class="lead-muted">I'm a Computer Science Engineering student with a serious passion for graphic design, branding, social media and digital creativity. Structure comes from the engineering side; taste comes from hours spent studying fashion campaigns, editorial grids and streetwear culture.</p>
+        <p class="lead-muted">I design in <strong class="text-white fw-semibold">Canva</strong> and edit motion content in <strong class="text-white fw-semibold">CapCut</strong> with  basics — enough to take an idea from a rough sketch to a finished, post-ready deliverable.</p>
+        <div class="row g-3 mt-4">
+          <div class="col-6 col-md-4"><div class="glass p-4 text-center"><div class="display-mono" style="font-size:2rem">30+</div><div class="eyebrow mt-2">Concepts</div></div></div>
+          <div class="col-6 col-md-4"><div class="glass p-4 text-center"><div class="display-mono" style="font-size:2rem">06</div><div class="eyebrow mt-2">Case Studies</div></div></div>
+          <div class="col-12 col-md-4"><div class="glass p-4 text-center"><div class="display-mono" style="font-size:2rem">100%</div><div class="eyebrow mt-2">Detail</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="reveal mb-5">
+      <p class="eyebrow mb-3">02 — Skills</p>
+      <h2 class="display-mono" style="font-size:clamp(2.2rem,6vw,4.5rem)">The Toolkit</h2>
+    </div>
+    <div class="d-flex flex-wrap gap-3 reveal">
+      <span class="skill-chip"><i class="bi bi-palette"></i>Canva</span>
+      <span class="skill-chip"><i class="bi bi-scissors"></i>CapCut</span>
+      <span class="skill-chip"><i class="bi bi-award"></i>Branding</span>
+      <span class="skill-chip"><i class="bi bi-instagram"></i>Social Media Design</span>
+      <span class="skill-chip"><i class="bi bi-type"></i>Typography</span>
+      <span class="skill-chip"><i class="bi bi-circle-half"></i>Color Theory</span>
+      <span class="skill-chip"><i class="bi bi-box"></i>Mockup Design</span>
+    </div>
+    <div class="row g-4 mt-5">
+      <div class="col-md-4 reveal"><div class="glass p-2"><div class="ratio ratio-4x3" style="border-radius:18px;overflow:hidden"><img src="/images/p7.jpg" alt="Monochrome typographic poster study" loading="lazy" width="1200" height="900" style="object-fit:contain;filter:grayscale(1)" /></div><p class="eyebrow px-3 py-3 mb-0">Typography Studies</p></div></div>
+      <div class="col-md-4 reveal"><div class="glass p-2"><div class="ratio ratio-4x3" style="border-radius:18px;overflow:hidden"><img src="/images/p10.jpg" alt="Grayscale color theory swatch study" loading="lazy" width="1200" height="900" style="object-fit:contain;filter:grayscale(1)" /></div><p class="eyebrow px-3 py-3 mb-0">Tonal Systems</p></div></div>
+      <div class="col-md-4 reveal"><div class="glass p-2"><div class="ratio ratio-4x3" style="border-radius:18px;overflow:hidden"><img src="/images/p11.jpg" alt="Blank monochrome clothing hang tag mockup" loading="lazy" width="1200" height="900" style="object-fit:contain;filter:grayscale(1)" /></div><p class="eyebrow px-3 py-3 mb-0">Label &amp; Tag Detail</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5 reveal">
+      <div>
+        <p class="eyebrow mb-3">03 — Featured Projects</p>
+        <h2 class="display-mono" style="font-size:clamp(2.2rem,6vw,4.5rem)">Selected<br />Work</h2>
+      </div>
+      <p class="lead-muted mb-0" style="max-width:38ch">Six concept projects exploring apparel, identity and campaign design in a strict monochrome system.</p>
+    </div>
+
+    <div class="row g-4" id="workGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 reveal">
+        <p class="eyebrow mb-3">04 — Design Process</p>
+        <h2 class="display-mono" style="font-size:clamp(2.2rem,5vw,3.6rem)">From brief<br />to <span class="grad-text">delivery</span></h2>
+        <p class="lead-muted mt-4">Every project runs through the same five stages, so the outcome is intentional — never accidental.</p>
+      </div>
+      <div class="col-lg-8 reveal">
+        <div class="process-row"><div class="process-num">01</div><div><h3 class="h5 text-white mb-2">Research</h3><p class="lead-muted mb-0">Audit the brand, its competitors and its audience. Build moodboards, collect references and lock the visual territory before a single pixel moves.</p></div></div>
+        <div class="process-row"><div class="process-num">02</div><div><h3 class="h5 text-white mb-2">Sketch</h3><p class="lead-muted mb-0">Fast thumbnails and hand sketches to explore composition, type weight and layout tension — cheap iterations, honest decisions.</p></div></div>
+        <div class="process-row"><div class="process-num">03</div><div><h3 class="h5 text-white mb-2">Digital Design</h3><p class="lead-muted mb-0">Build the chosen direction on a strict grid in Canva, Photoshop or Illustrator: type system, spacing scale, tonal contrast and export-ready structure.</p></div></div>
+        <div class="process-row"><div class="process-num">04</div><div><h3 class="h5 text-white mb-2">Mockups</h3><p class="lead-muted mb-0">Place the design into real-world context — tees, tags, packaging, feeds and banners — to test how it survives outside the artboard.</p></div></div>
+        <div class="process-row" style="border-bottom:1px solid var(--line)"><div class="process-num">05</div><div><h3 class="h5 text-white mb-2">Final Delivery</h3><p class="lead-muted mb-0">Clean files, correct sizes, print and social variants, plus a short usage guide so the brand stays consistent after handover.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section class="section" id="hire">
+  <div class="container">
+    <div class="reveal mb-5">
+      <p class="eyebrow mb-3">05 — Why Hire Me</p>
+      <h2 class="display-mono" style="font-size:clamp(2.2rem,6vw,4.5rem)">Built Different</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal"><div class="glass p-4 h-100"><i class="bi bi-lightbulb fs-3"></i><h3 class="h5 text-white mt-4 mb-2">Creative Thinking</h3><p class="lead-muted mb-0" style="font-size:.95rem">I look for the unexpected angle — an idea that earns a second look instead of blending into the feed.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="glass p-4 h-100"><i class="bi bi-rocket-takeoff fs-3"></i><h3 class="h5 text-white mt-4 mb-2">Fast Learner</h3><p class="lead-muted mb-0" style="font-size:.95rem">New tool, new format, new brand voice — I pick it up quickly and start producing usable work fast.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="glass p-4 h-100"><i class="bi bi-rulers fs-3"></i><h3 class="h5 text-white mt-4 mb-2">Detail Oriented</h3><p class="lead-muted mb-0" style="font-size:.95rem">Kerning, alignment, export settings. The details are what separate a design from a deliverable.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="glass p-4 h-100"><i class="bi bi-bag-heart fs-3"></i><h3 class="h5 text-white mt-4 mb-2">Passion for Fashion Branding</h3><p class="lead-muted mb-0" style="font-size:.95rem">Streetwear and luxury identity is what I study for fun — that obsession shows up in the output.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 reveal">
+        <p class="eyebrow mb-3">06 — Contact</p>
+        <h2 class="display-mono" style="font-size:clamp(2.4rem,6vw,4.6rem)">Let's build<br />the <span class="grad-text">brand</span></h2>
+        <p class="lead-muted mt-4">Open to design collaborations, brand identity work, social media content and internships.</p>
+      </div>
+      <div class="col-lg-7 reveal">
+        <div class="row g-3">
+          <div class="col-md-6">
+    <a class="contact-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=naikriya01@gmail.com" target="_blank">
+        <i class="bi bi-envelope"></i>
+        <span>
+            <span class="eyebrow d-block">Email</span>
+            naikriya01@gmail.com
+        </span>
+    </a>
+</div>
+          <div class="col-md-6"><a class="contact-link" href="https://www.linkedin.com/in/riya-naik-81b383328/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i><span><span class="eyebrow d-block">LinkedIn</span>linkedin.com/in/riya-naik</span></a></div>
+          <div class="col-md-6"><a class="contact-link" href="https://github.com/riyanaik10143-alt" target="_blank" rel="noopener"><i class="bi bi-github"></i><span><span class="eyebrow d-block">GitHub</span>github.com/riyanaik</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between gap-2">
+    <span>© <span id="yr"></span> Riya Naik. All rights reserved.</span>
+    <span class="text-uppercase">Designed in monochrome</span>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const projects = [
+  {
+    img: "/images/p1.png",
+    title: "Resort Promotional Advertisement",
+    desc: "Designed promotional advertisements and marketing creatives for my family's resort, focusing on attractive layouts, engaging visuals, and clear communication using Canva.",
+    tools: ["Canva"]
+  },
+  {
+    img: "/images/p2.png",
+    title: "Social Media Creatives",
+    desc: "Created Instagram posts and promotional graphics for branding and social media campaigns with a focus on clean layouts and visual storytelling.",
+    tools: ["Canva"]
+  },
+  {
+    img: "/images/p3.png",
+    title: "Facebook Video Editing",
+    desc: "Edited Facebook videos and promotional content for my father's content using CapCut, including transitions, text overlays, music, and pacing.",
+    tools: ["CapCut"]
+  },
+  {
+    img: "/images/p4.png",
+    title: "Resort Marketing Designs",
+    desc: "Designed posters, promotional banners, and digital advertisements to promote services and offers for my family's resort business.",
+    tools: ["Canva"]
+  },
+  {
+    img: "/images/p5.png",
+    title: "Personal Portfolio Website",
+    desc: "Designed and developed my personal portfolio with a modern monochrome aesthetic to showcase my creative work, projects, and contact information.",
+    tools: ["Canva"]
+  },
+];
+  document.getElementById("workGrid").innerHTML = projects.map((p,i)=>`
+    <div class="col-md-6 col-lg-4 reveal">
+      <article class="work-card d-flex flex-column">
+        <div class="work-media">
+          <span class="work-index">0${i+1}</span>
+          <img src="${p.img}" alt="${p.title} monochrome design preview" loading="lazy" width="1200" height="900" />
+        </div>
+        <div class="p-4 d-flex flex-column flex-grow-1">
+          <h3 class="h5 text-white mb-2">${p.title}</h3>
+          <p class="lead-muted" style="font-size:.94rem">${p.desc}</p>
+          <div class="d-flex flex-wrap gap-2 mb-4">${p.tools.map(t=>`<span class="tool-tag">${t}</span>`).join("")}</div>
+          <a class="btn btn-lux mt-auto align-self-start" href="#contact">View Design<i class="bi bi-arrow-up-right ms-2"></i></a>
+        </div>
+      </article>
+    </div>`).join("");
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }});
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach((el,i)=>{ el.style.transitionDelay=`${(i%3)*90}ms`; io.observe(el); });
+
+  const nav = document.getElementById("nav"), topBtn = document.getElementById("toTop");
+  addEventListener("scroll",()=>{
+    nav.classList.toggle("shrink", scrollY>40);
+    topBtn.classList.toggle("show", scrollY>700);
+  });
+  topBtn.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+  document.querySelectorAll("#menu .nav-link, #menu .btn").forEach(a=>a.addEventListener("click",()=>{
+    const c = bootstrap.Collapse.getInstance(document.getElementById("menu")); if(c) c.hide();
+  }));
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
